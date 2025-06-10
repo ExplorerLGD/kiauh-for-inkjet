@@ -24,7 +24,7 @@ function check_euid() {
     echo -e "|        It will ask for credentials as needed.         |"
     bottom_border
     echo -e "${white}"
-    #exit 1
+    exit 1
   fi
 }
 
