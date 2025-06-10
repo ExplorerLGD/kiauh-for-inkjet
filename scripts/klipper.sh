@@ -275,17 +275,25 @@ function clone_klipper() {
 function create_klipper_virtualenv() {
   local python_version="${1}"
 
-  [[ -d ${KLIPPY_ENV} ]] && rm -rf "${KLIPPY_ENV}"
+  #[[ -d ${KLIPPY_ENV} ]] && rm -rf "${KLIPPY_ENV}"
 
   status_msg "Installing $("python${python_version}" -V) virtual environment..."
-
-  if virtualenv -p "python${python_version}" "${KLIPPY_ENV}"; then
+  status_msg "KLIPPY_ENV is: ${KLIPPY_ENV}"
+  if [[ -d "${KLIPPY_ENV}" ]]; then
     "${KLIPPY_ENV}"/bin/pip install -r "${KLIPPER_DIR}"/scripts/klippy-requirements.txt
   else
     log_error "failure while creating python3 klippy-env"
     error_msg "Creation of Klipper virtualenv failed!"
     exit 1
   fi
+#
+#  if virtualenv -p "python${python_version}" "${KLIPPY_ENV}"; then
+#    "${KLIPPY_ENV}"/bin/pip install -r "${KLIPPER_DIR}"/scripts/klippy-requirements.txt
+#  else
+#    log_error "failure while creating python3 klippy-env"
+#    error_msg "Creation of Klipper virtualenv failed!"
+#    exit 1
+#  fi
 }
 
 ###
@@ -464,7 +472,7 @@ function remove_klipper_env() {
   [[ ! -d ${KLIPPY_ENV} ]] && return
 
   status_msg "Removing klippy-env directory ..."
-  rm -rf "${KLIPPY_ENV}"
+  #rm -rf "${KLIPPY_ENV}"
   ok_msg "Directory removed!"
 }
 

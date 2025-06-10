@@ -32,6 +32,7 @@ function set_globals() {
 
   #================== KLIPPER ===================#
   KLIPPY_ENV="${HOME}/klippy-env"
+  KLIPPY_ENV="/usr/local/share/pynq-venv"
   KLIPPER_DIR="${HOME}/klipper"
   KLIPPER_REPO="https://github.com/Klipper3d/klipper.git"
 
