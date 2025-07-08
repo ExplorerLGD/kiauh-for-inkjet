@@ -1,5 +1,6 @@
 something need to do for zynq chip:
-关闭jupyter
+
+关闭jupyter    
 sudo rm /lib/systemd/system/jupyter.service 
 sudo rm /usr/local/bin/redirect_server
 sudo rm /usr/local/bin/start_jupyter.sh
