@@ -1,3 +1,24 @@
+something need to do for zynq chip:
+关闭jupyter
+sudo rm /lib/systemd/system/jupyter.service 
+sudo rm /usr/local/bin/redirect_server
+sudo rm /usr/local/bin/start_jupyter.sh
+
+sudo systemctl daemon-reload
+sudo vim /etc/nginx/sites-available/fluidd    修改端口为9090
+sudo vim /etc/systemd/system/moonraker.service    修改用户为root
+
+#####sudo vim /etc/systemd/system/klipper.service    修改用户为root
+ExecStart=/bin/bash -c 'source /etc/profile.d/pynq_venv.sh && source /etc/profile.d/xrt_setup.sh && exec /usr/local/share/pynq-venv/bin/python $KLIPPER_ARGS'   启用pynq环境
+
+sudo chmod -R a+rwX /usr/local/share/pynq-venv   修改虚拟环境权限
+
+sudo chown -R xilinx:xilinx /home/xilinx/printer_data   修改print_data权限为xilinx   
+
+
+
+
+
 <p align="center">
   <a>
     <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/kiauh.png" alt="KIAUH logo" height="181">
