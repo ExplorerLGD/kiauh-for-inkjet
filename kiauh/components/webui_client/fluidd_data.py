@@ -36,8 +36,8 @@ class FluiddConfigWeb(BaseWebClientConfig):
 
 @dataclass()
 class FluiddData(BaseWebClient):
-    BASE_DL_URL = "https://github.com/fluidd-core/fluidd/releases"
-
+    #BASE_DL_URL = "https://github.com/fluidd-core/fluidd/releases"
+    BASE_DL_URL = "https://github.com/ExplorerLGD/fluidd-for-inkjet-3d-printer/releases"
     client: WebClientType = WebClientType.FLUIDD
     name: str = client.value
     display_name: str = name.capitalize()
