@@ -364,16 +364,16 @@ function get_fluidd_download_url() {
   local releases_by_tag tags tag unstable_url url
 
   ### latest stable download url
-  url="https://github.com/fluidd-core/fluidd/releases/latest/download/fluidd.zip"
+  url="https://github.com/ExplorerLGD/fluidd-for-inkjet-3d-printer/releases/latest/download/fluidd.zip"
 
   read_kiauh_ini "${FUNCNAME[0]}"
   if [[ ${fluidd_install_unstable} == "true" ]]; then
-    releases_by_tag="https://api.github.com/repos/fluidd-core/fluidd/tags"
+    releases_by_tag="https://api.github.com/repos/ExplorerLGD/fluidd-for-inkjet-3d-printer/tags"
     tags=$(curl -s "${releases_by_tag}" | grep "name" | cut -d'"' -f4)
     tag=$(echo "${tags}" | head -1)
 
     ### latest unstable download url including pre-releases (alpha, beta, rc)
-    unstable_url="https://github.com/fluidd-core/fluidd/releases/download/${tag}/fluidd.zip"
+    unstable_url="https://github.com/ExplorerLGD/fluidd-for-inkjet-3d-printer/releases/download/${tag}/fluidd.zip"
 
     if [[ ${unstable_url} == *"download//"* ]]; then
       warn_msg "Download URL broken! Falling back to URL of latest stable release!"
